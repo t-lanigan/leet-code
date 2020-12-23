@@ -1,6 +1,8 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
 
+    	if len(s) != len(t): return False
+
     	ds = self.getCountsDict(s)
     	dt = self.getCountsDict(t)
 
@@ -20,7 +22,7 @@ class Solution:
 
 sol = Solution()
 
-s = "anagram"
+s = "2"
 t = "nagaram"
 
 
