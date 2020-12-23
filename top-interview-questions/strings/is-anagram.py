@@ -22,7 +22,7 @@ class Solution:
 
 sol = Solution()
 
-s = "2"
+s = "anagram"
 t = "nagaram"
 
 
