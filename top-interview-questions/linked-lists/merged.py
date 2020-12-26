@@ -5,12 +5,12 @@
 #         self.next = next
 class Solution:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
-  
+    
         # A dummy node to store the result 
-        merged = ListNode(0) 
+        mergedHead = ListNode(0) 
 
         # Tail stores the last node 
-        tail = merged 
+        tail = mergedHead 
         while True: 
 
             # If any of the list gets completely empty 
@@ -35,4 +35,5 @@ class Solution:
             tail = tail.next
 
         # Returns the head of the merged list 
-        return merged.next
+        return mergedHead.next
+            
