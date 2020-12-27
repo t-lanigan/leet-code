@@ -10,7 +10,7 @@ class Solution:
                 return False
             
             # The left and right subtree must also be valid.
-            return (validate(node.right, node.val, high) and
-                   validate(node.left, low, node.val))
+            return validate(node.right, node.val, high) and
+                   validate(node.left, low, node.val)
         
         return validate(root)
