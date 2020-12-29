@@ -4,16 +4,22 @@ from typing import List
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         
-        if len(prices) == 0:
+        if prices == []:
             return 0
         
-        profit = []
-        for i in range(len(prices)):
-            for j in range(i,len(prices)):
-                profit.append(prices[j] - prices[i])
+        buy = prices[0]
+        maxProfit = 0
+        
+        
+        for price in prices:
+            profit = price - buy
+            if profit > maxProfit:
+                maxProfit = profit
+            if buy > price:
+                buy = price
                 
         
-        return max(profit)
+        return maxProfit
 
 
 test = Solution()
