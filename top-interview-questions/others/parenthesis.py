@@ -1,6 +1,4 @@
 class Solution:
-
-
     def isValid(self, s: str) -> bool:
         """Tests if the input string is valid for parenthesis
         """
@@ -21,7 +19,7 @@ class Solution:
                     return False
 
         if len(pStack) != 0:
-            return 0
+            return False
 
         return True
 
@@ -32,3 +30,5 @@ testString = "(){}[]["
 
 
 print(sol.isValid(testString))
+
+assert sol.isValid(testString) == False
