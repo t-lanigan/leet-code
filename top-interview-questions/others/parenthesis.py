@@ -1,41 +1,34 @@
 class Solution:
 
-    def __init__(self):
-        self.pMap = {
+
+    def isValid(self, s: str) -> bool:
+        """Tests if the input string is valid for parenthesis
+        """
+        pMap = {
                    ')': '(',
                    '}': '{',
                    ']': '['
         }
 
-        self.pSwitch = {
-                   '(': 0,
-                   '{': 0,
-                   '[': 0
-        }
-
-
-    def isValid(self, s: str) -> bool:
-        """Tests if the input string is valid for parenthesis
-        """
+        pStack = []
         for c in s:
             if c in ['(', '{', '[']:
-                self.pSwitch[c] += 1
+                pStack.append(c)
             else:
-                self.pSwitch[self.pMap[c]] -= 1
-                if self.pSwitch[self.pMap[c]] > 0:
+                if len(pStack) == 0:
+                    return False
+                if pMap[c] != pStack.pop():
                     return False
 
-        for key, value in self.pSwitch.items():
-            if value != 0:
-                return False
-
+        if len(pStack) != 0:
+            return 0
 
         return True
 
 
 sol = Solution()
 
-failString = "([)]"
+testString = "(){}[]["
 
 
 print(sol.isValid(testString))
