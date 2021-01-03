@@ -1,33 +1,26 @@
 class Solution:
-    def countPrimes(self, n: int) -> int:
-
-        if n == 0 or n == 1:
-            return 0
-
-
+    def countPrimes(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
         count = 0
+        primes = [False for i in range(n+1)]
         for i in range(2,n):
-            if self.isPrime(i):
-                count += 1
-
+            if primes[i] == False:
+                count+=1
+                j = 2
+            while j*i<n:
+                 primes[j*i] = True
+                 j+=1
         return count
-
-
-    def isPrime(self, n: int) -> bool:
-
-        
-        for i in range(2,n):
-            if n % i == 0:
-                return False
-
-        return True
 
 
 solution = Solution()
 assert solution.countPrimes(1) == 0
 assert solution.countPrimes(10) == 4
 assert solution.countPrimes(0) == 0
-print(solution.countPrimes(499979))
+assert solution.countPrimes(499979) == 41537 # This one will take a long time
 
 
 
